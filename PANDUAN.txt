@@ -1,0 +1,81 @@
+=====================================================
+ LEARNLIB (pengembangan RawNote)  |  PANDUAN SINGKAT
+=====================================================
+
+CARA MEMULAI
+1. Ekstrak (unzip) file ZIP ini ke folder mana saja.
+   PENTING: ekstrak dulu, jangan buka file langsung dari dalam ZIP.
+2. Klik dua kali  index.html  (disarankan Google Chrome atau Microsoft Edge).
+3. Selesai. Tidak perlu instalasi.
+
+FITUR
+- Rangkum  : unggah PDF / DOCX / TXT atau tempel teks. Tiap poin disertai
+             kutipan yang dicek ke teks asli.
+- Kuis & Kartu : buat soal pilihan ganda & flashcard dari materi.
+- Perpustakaan : materi belajar bawaan (Matematika, Fisika, Kimia, Biologi,
+             Bahasa Pemrograman, Bahasa Inggris, Teknik Belajar). Bisa dibaca
+             tanpa internet, disimpan ke Catatan, atau dikirim ke Rangkum.
+- Catatan, Tugas, Fokus (timer Pomodoro).
+- Unduh hasil rangkuman sebagai file DOC (Word) atau PDF.
+
+LEARNLIB: PERPUSTAKAAN
+- Cari materi (judul, istilah, rumus, isi) dengan sorotan kata kunci; filter pelajaran dan status.
+- Favorit, tandai selesai, riwayat, progres per pelajaran (dihitung dari data nyata).
+- Latihan soal lokal (tanpa internet/API key) dengan skor, pembahasan, ulangi soal salah.
+- Cadangan data: ekspor/impor JSON di menu Pengaturan.
+- Materi ada di data/perpustakaan.js, bank soal di data/soal.js.
+
+DUA MODE RINGKASAN
+A) MODE DASAR (tanpa AI, gratis, tanpa internet)
+   Langsung bisa dipakai. Aplikasi memilih kalimat terpenting dari teks
+   dan menyalinnya apa adanya. Cocok untuk ringkasan cepat.
+
+B) MODE AI (ringkasan pintar + kuis)
+   Butuh API key Claude milik Anda sendiri:
+   1. Buka https://console.anthropic.com lalu daftar / masuk.
+   2. Isi saldo kecil (Billing), lalu buat API key (menu API Keys).
+   3. Di aplikasi, buka menu "Pengaturan", tempel key, klik Simpan,
+      lalu "Uji koneksi".
+   Biaya dibayar langsung ke Anthropic sesuai pemakaian (tidak ada
+   langganan bulanan). Cek harga terbaru di situs Anthropic.
+
+PRIVASI & DATA SENSITIF
+- Untuk dokumen yang sangat rahasia (kontrak, data pribadi/medis/keuangan),
+  gunakan MODE DASAR: seluruh proses terjadi di komputer Anda, tidak ada
+  yang dikirim ke internet.
+- Di MODE AI, teks yang Anda rangkum dikirim langsung dari browser Anda ke
+  Claude (Anthropic). Pengembang aplikasi ini TIDAK menerima salinannya.
+  Baca kebijakan data Anthropic sebelum mengirim dokumen rahasia, dan
+  pastikan Anda berhak mengirimkannya (misalnya aturan kantor/kampus).
+- Jangan buka PDF/DOCX dari sumber yang tidak Anda percaya.
+- Data tersimpan di browser tanpa enkripsi. Jangan pakai di komputer umum
+  atau bersama. Setelah selesai, klik "Hapus key" di Pengaturan.
+- Catatan, tugas, dan API key tersimpan HANYA di browser Anda.
+- Teks materi hanya dikirim ke Claude saat Anda memakai Mode AI.
+- Jangan membagikan API key Anda kepada siapa pun.
+
+MASALAH UMUM
+- PDF tidak terbaca    : kemungkinan PDF hasil scan (gambar). Gunakan PDF
+                         yang teksnya bisa diseleksi, atau tempel teksnya.
+                         Coba juga buka dengan Chrome / Edge.
+- File .doc lama       : simpan ulang sebagai .docx.
+- Data hilang          : data tersimpan di browser; jangan hapus
+                         "data situs" / riwayat browser.
+- "API key tidak valid": periksa key, pastikan tidak ada spasi tambahan.
+
+CATATAN PENTING
+- Ringkasan AI dapat keliru. Tanda ✓/⚠ pada kutipan membantu
+  memeriksa, tetapi tetap baca ulang untuk materi penting.
+
+LISENSI
+- Untuk 1 (satu) pembeli. Dilarang membagikan ulang, menjual ulang,
+  atau mengunggah ulang file ini.
+
+
+DEPLOY KE VERCEL
+1. Upload folder ini ke GitHub (file .env tidak ikut, sudah di .gitignore).
+2. Vercel > Add New > Project > import repository.
+3. Framework Preset: Other. Build Command: npm run build. Output Directory: public. Install Command: biarkan default.
+4. Environment Variables: ANTHROPIC_API_KEY (wajib untuk AI server), ANTHROPIC_MODEL (opsional), APP_ACCESS_CODE (opsional, sangat disarankan agar endpoint tidak dipakai sembarang orang).
+5. Deploy, lalu uji URL production. Tanpa ANTHROPIC_API_KEY, mode dasar tetap jalan dan pengguna bisa memakai API key sendiri.
+Lokal: npm i -g vercel, lalu vercel dev (butuh file .env.local berisi variabel di atas).

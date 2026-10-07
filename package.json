@@ -1,0 +1,11 @@
+{
+  "name": "learnlib",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LearnLib: platform belajar pribadi (situs statis + satu fungsi serverless /api/ai).",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "node -e \"console.log('LearnLib: situs statis di public/, tidak ada langkah build.')\""
+  },
+  "engines": { "node": ">=18" }
+}
